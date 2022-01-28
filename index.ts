@@ -1,10 +1,35 @@
+import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 import * as awsx from "@pulumi/awsx";
 import * as eks from "@pulumi/eks";
+import * as tls from "@pulumi/tls";
 
 // Create a VPC for our cluster.
 const vpc = new awsx.ec2.Vpc("my-Vpc", {
     cidrBlock: "10.0.0.0/16",
+});
+
+// Autoscaling policy
+const autoscalingPolicy = new aws.iam.Policy("AmazonEKSClusterAutoscalerPolicy", {
+    policy: pulumi.interpolate`{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "autoscaling:DescribeAutoScalingGroups",
+                "autoscaling:DescribeAutoScalingInstances",
+                "autoscaling:DescribeLaunchConfigurations",
+                "autoscaling:DescribeTags",
+                "autoscaling:SetDesiredCapacity",
+                "autoscaling:TerminateInstanceInAutoScalingGroup",
+                "ec2:DescribeLaunchTemplateVersions"
+            ],
+            "Resource": "*",
+            "Effect": "Allow"
+        }
+    ]
+}
+`
 });
 
 // IAM roles for the node group.
@@ -31,6 +56,7 @@ const cluster = new eks.Cluster("my-cluster", {
     publicSubnetIds: vpc.publicSubnetIds,
     privateSubnetIds: vpc.privateSubnetIds,
     instanceRoles: [role],
+    createOidcProvider: true
 });
 
 // Create a simple AWS managed node group using a cluster as input.
@@ -51,4 +77,33 @@ const managedNodeGroup = eks.createManagedNodeGroup("my-cluster-ng", {
 }, cluster);
 
 // Export the cluster's kubeconfig.
-export const kubeconfig = cluster.kubeconfig;
+export const kubeconfig = cluster.kubeconfig
+export const clusterName = cluster.eksCluster.name
+
+const autoscalingRole = new aws.iam.Role("AmazonEKSClusterAutoscalerRole", {
+    path: "/system/",
+    assumeRolePolicy: pulumi.interpolate`{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Federated": "${cluster.core.oidcProvider!.arn}"
+      },
+      "Action": "sts:AssumeRoleWithWebIdentity",
+      "Condition": {
+        "StringEquals": {
+          "${cluster.core.oidcProvider!.url}:aud": "sts.amazonaws.com"
+        }
+      }
+    }
+  ]
+}
+`
+});
+export const roleArn = autoscalingRole.arn
+
+const attachPolicytoRole = new aws.iam.RolePolicyAttachment("attach-policy-to-role", {
+    role: autoscalingRole.name,
+    policyArn: autoscalingPolicy.arn,
+});

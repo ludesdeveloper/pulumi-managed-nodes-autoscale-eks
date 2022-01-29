@@ -25,7 +25,7 @@ pulumi stack init
 ```
 5. Set Pulumi region
 ```
-$ pulumi config set aws:region ap-southeast-1
+pulumi config set aws:region ap-southeast-1
 ```
 6. Provision EKS with pulumi
 ```

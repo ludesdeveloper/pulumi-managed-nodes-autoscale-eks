@@ -58,4 +58,7 @@ watch kubectl get nodes
 watch kubectl get pods
 ```
 ### **Testing**
-
+1. Apply nginx-deployment
+```
+kubectl apply -f nginx-deployment.yaml
+```

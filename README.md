@@ -36,3 +36,11 @@ pulumi up --yes
 ```
 pulumi stack output kubeConfig > ~/.kube/config
 ```
+8. Make sure your cluster is ready
+```
+kubectl get nodes
+```
+9. You can run script below or manually copy paste
+```
+./k8scluster.sh
+```

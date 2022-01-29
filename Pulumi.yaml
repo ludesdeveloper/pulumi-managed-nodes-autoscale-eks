@@ -1,3 +1,0 @@
-name: pulumi-dev-golang
-runtime: nodejs
-description: A minimal AWS TypeScript Pulumi program

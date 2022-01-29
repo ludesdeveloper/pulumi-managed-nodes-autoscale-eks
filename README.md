@@ -55,7 +55,7 @@ watch kubectl get nodes
 ```
 3. Check Pods
 ```
-watch kubectl get pods
+watch kubectl get pods -o wide
 ```
 ### **Testing**
 1. Apply nginx-deployment

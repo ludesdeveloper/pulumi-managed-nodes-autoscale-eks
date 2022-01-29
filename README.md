@@ -90,5 +90,7 @@ pulumi stack rm dev
 > Type name of your stack
 ### **Source Articles**
 [How to Scale Your Amazon EKS Cluster: EC2, Managed Node Groups, and Fargate](https://www.pulumi.com/blog/aws-eks-managed-nodes-fargate/)
+
 [Amazon EKS Pulumi Crosswalk](https://www.pulumi.com/registry/packages/eks/api-docs/#ClusterOptions)
+
 [Autoscaling - Amazon EKS](https://docs.aws.amazon.com/eks/latest/userguide/autoscaling.html)

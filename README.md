@@ -19,12 +19,16 @@ cd pulumi-eks-managed-nodes
 ```
 npm install
 ```
-4. Provision EKS with pulumi
+4. Initialize Pulumi stack
+```
+$ pulumi stack init
+```
+5. Provision EKS with pulumi
 ```
 pulumi up --yes
 ```
 > Give name of your stack, (dev) or other name you prefered
-5. Copy kubeconfig to your kubeconfig directory (warning, this will replace your kubeconfig file)
+6. Copy kubeconfig to your kubeconfig directory (warning, this will replace your kubeconfig file)
 ```
 pulumi stack output kubeConfig > ~/.kube/config
 ```

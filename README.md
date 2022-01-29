@@ -1,4 +1,4 @@
-# **PROVISION MANAGED AUTOSCALE EKS WITH PULUMI**
+# **PROVISION MANAGED NODES AUTOSCALE EKS WITH PULUMI**
 <p align="center">
 <img src="pic/ludes.png" width="500">
 </p>

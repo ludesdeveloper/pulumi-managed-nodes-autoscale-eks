@@ -72,3 +72,4 @@ EC2 dashboard AWS, AWS will try to create new instance
 ```
 kubectl scale deployment/nginx-deployment --replicas=3
 ```
+> Scale down will takes time around 10 minutes

@@ -23,12 +23,16 @@ npm install
 ```
 pulumi stack init
 ```
-5. Provision EKS with pulumi
+5. Set Pulumi region
+```
+$ pulumi config set aws:region ap-southeast-1
+```
+6. Provision EKS with pulumi
 ```
 pulumi up --yes
 ```
 > Give name of your stack, (dev) or other name you prefered
-6. Copy kubeconfig to your kubeconfig directory (warning, this will replace your kubeconfig file)
+7. Copy kubeconfig to your kubeconfig directory (warning, this will replace your kubeconfig file)
 ```
 pulumi stack output kubeConfig > ~/.kube/config
 ```

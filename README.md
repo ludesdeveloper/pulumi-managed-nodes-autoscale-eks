@@ -1,4 +1,4 @@
-<img src="pic/ludes.png" width="100">
+<img src="pic/ludes.png" width="300">
 
 # **PROVISION MANAGED AUTOSCALE EKS WITH PULUMI**
 ### **Requirement**

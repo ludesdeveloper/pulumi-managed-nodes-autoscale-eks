@@ -1,5 +1,7 @@
 # **PROVISION MANAGED AUTOSCALE EKS WITH PULUMI**
+<p align="center">
 <img src="pic/ludes.png" width="400">
+</p>
 
 ### **Requirement**
 1. [AWS CLI installed](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)

@@ -13,11 +13,11 @@
 ### **How To**
 1. Clone repository
 ```
-git clone https://github.com/ludesdeveloper/pulumi-eks-managed-nodes.git
+git clone https://github.com/ludesdeveloper/pulumi-managed-nodes-autoscale-eks.git 
 ```
 2. Change directory
 ```
-cd pulumi-eks-managed-nodes
+cd pulumi-managed-nodes-autoscale-eks
 ```
 3. Install dependencies
 ```

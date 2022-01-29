@@ -1,4 +1,4 @@
-![LuDeS Logo](pic/ludes.png)
+![LuDeS Logo](pic/ludes.png | width=100)
 # **PROVISION MANAGED AUTOSCALE EKS WITH PULUMI**
 ### **Requirement**
 1. [AWS CLI installed](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
@@ -83,3 +83,4 @@ pulumi destroy --yes
 ```
 pulumi stack rm dev
 ```
+> Type name of your stack

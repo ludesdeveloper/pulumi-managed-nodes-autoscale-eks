@@ -2,3 +2,5 @@
 /node_modules/
 config
 *.DS_Store
+Pulumi.dev.yaml
+package-lock.json

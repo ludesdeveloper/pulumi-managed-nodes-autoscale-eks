@@ -44,9 +44,9 @@ pulumi stack output kubeConfig > ~/.kube/config
 ```
 kubectl get nodes
 ```
-9. You can run script below to apply cluster autoscaler or manually copy paste line inside k8scluster.sh script
+9. You can run script below to apply cluster autoscaler or manually copy paste line inside init-autoscale-cluster.sh script
 ```
-./k8scluster.sh
+./init-autoscale-cluster.sh
 ```
 ### **Before Testing**
 1. Usually when testing, I open 3 tabs terminal to check, and every check consist of : auto scale log

@@ -1,6 +1,6 @@
+# **PROVISION MANAGED AUTOSCALE EKS WITH PULUMI**
 <img src="pic/ludes.png" width="400">
 
-# **PROVISION MANAGED AUTOSCALE EKS WITH PULUMI**
 ### **Requirement**
 1. [AWS CLI installed](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 2. [Configure AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html#cli-configure-quickstart-config)

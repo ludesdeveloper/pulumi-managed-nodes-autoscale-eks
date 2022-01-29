@@ -62,10 +62,13 @@ watch kubectl get pods
 ```
 kubectl apply -f nginx-deployment.yaml
 ```
-2. Scale nginx pod
+2. Scale up nginx pod
 ```
 kubectl scale deployment/nginx-deployment --replicas=20
 ```
 > You will see pending in your pod, and kubernetes will trigger scale up for nodes, wait for a while. You also can check in your
 EC2 dashboard AWS, AWS will try to create new instance
-
+3. Scale down nginx pod
+```
+kubectl scale deployment/nginx-deployment --replicas=3
+```

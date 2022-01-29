@@ -62,3 +62,8 @@ watch kubectl get pods
 ```
 kubectl apply -f nginx-deployment.yaml
 ```
+2. Scale nginx pod
+```
+kubectl scale deployment/nginx-deployment --replicas=20
+```
+

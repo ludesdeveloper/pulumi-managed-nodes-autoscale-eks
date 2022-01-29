@@ -21,7 +21,7 @@ npm install
 ```
 4. Initialize Pulumi stack
 ```
-$ pulumi stack init
+pulumi stack init
 ```
 5. Provision EKS with pulumi
 ```

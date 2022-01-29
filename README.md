@@ -10,6 +10,7 @@
 4. [Pulumi logged in](https://www.pulumi.com/docs/reference/cli/pulumi_login/)
 5. [Helm instaled](https://helm.sh/docs/intro/install/)
 6. [NPM installed](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+7. [Kubectl installed](https://kubernetes.io/docs/tasks/tools/)
 ### **How To**
 1. Clone repository
 ```

@@ -51,11 +51,11 @@ kubectl -n kube-system logs -f deployment.apps/cluster-autoscaler
 ```
 2. Check Nodes
 ```
-kubectl get nodes
+watch kubectl get nodes
 ```
 3. Check Pods
 ```
-kubectl get pods
+watch kubectl get pods
 ```
 ### **Testing**
 

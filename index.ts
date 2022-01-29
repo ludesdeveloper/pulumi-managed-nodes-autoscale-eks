@@ -101,4 +101,3 @@ const attachPolicytoRole = new aws.iam.RolePolicyAttachment("attach-policy-to-ro
 export const kubeConfig = cluster.kubeconfig
 export const clusterName = cluster.eksCluster.name
 export const roleArn = autoscalingRole.arn
-export const testingOutput = cluster.core

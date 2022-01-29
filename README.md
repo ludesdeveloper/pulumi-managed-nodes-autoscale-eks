@@ -78,3 +78,7 @@ kubectl scale deployment/nginx-deployment --replicas=3
 ```
 pulumi destroy --yes
 ```
+2. Remove pulumi stack
+```
+pulumi stack rm dev
+```

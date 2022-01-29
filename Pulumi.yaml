@@ -1,3 +1,3 @@
-name: pulumi-dev-golang
+name: aws-ts-eks-autoscale
 runtime: nodejs
-description: A minimal AWS TypeScript Pulumi program
+description: AWS TypeScript Pulumi program for provision autoscale EKS

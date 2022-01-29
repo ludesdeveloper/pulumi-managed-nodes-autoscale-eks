@@ -24,4 +24,7 @@ npm install
 pulumi up --yes
 ```
 > Give name of your stack, (dev) or other name you prefered
-
+5. Copy kubeconfig to your kubeconfig directory (warning, this will replace your kubeconfig file)
+```
+pulumi stack output kubeConfig > ~/.kube/config
+```

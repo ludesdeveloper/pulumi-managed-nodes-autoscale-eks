@@ -44,3 +44,18 @@ kubectl get nodes
 ```
 ./k8scluster.sh
 ```
+### **Before Testing**
+1. Usually when testing, I open 3 tabs terminal to check, and every check consist of : auto scale log
+```
+kubectl -n kube-system logs -f deployment.apps/cluster-autoscaler
+```
+2. Check Nodes
+```
+kubectl get nodes
+```
+3. Check Pods
+```
+kubectl get pods
+```
+### **Testing**
+

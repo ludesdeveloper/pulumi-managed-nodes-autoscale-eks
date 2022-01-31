@@ -7,28 +7,6 @@ const vpc = new awsx.ec2.Vpc("my-Vpc", {
     cidrBlock: "10.0.0.0/16",
 });
 
-const autoscalingPolicy = new aws.iam.Policy("AmazonEKSClusterAutoscalerPolicy", {
-    policy: pulumi.interpolate`{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Action": [
-                "autoscaling:DescribeAutoScalingGroups",
-                "autoscaling:DescribeAutoScalingInstances",
-                "autoscaling:DescribeLaunchConfigurations",
-                "autoscaling:DescribeTags",
-                "autoscaling:SetDesiredCapacity",
-                "autoscaling:TerminateInstanceInAutoScalingGroup",
-                "ec2:DescribeLaunchTemplateVersions"
-            ],
-            "Resource": "*",
-            "Effect": "Allow"
-        }
-    ]
-}
-`
-});
-
 const role = new aws.iam.Role("my-cluster-ng-role", {
     assumeRolePolicy: aws.iam.assumeRolePolicyForPrincipal({
         Service: "ec2.amazonaws.com",
@@ -70,6 +48,27 @@ const managedNodeGroup = eks.createManagedNodeGroup("my-cluster-ng", {
     },
 }, cluster);
 
+const autoscalingPolicy = new aws.iam.Policy("AmazonEKSClusterAutoscalerPolicy", {
+    policy: pulumi.interpolate`{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "autoscaling:DescribeAutoScalingGroups",
+                "autoscaling:DescribeAutoScalingInstances",
+                "autoscaling:DescribeLaunchConfigurations",
+                "autoscaling:DescribeTags",
+                "autoscaling:SetDesiredCapacity",
+                "autoscaling:TerminateInstanceInAutoScalingGroup",
+                "ec2:DescribeLaunchTemplateVersions"
+            ],
+            "Resource": "*",
+            "Effect": "Allow"
+        }
+    ]
+}
+`
+});
 
 const autoscalingRole = new aws.iam.Role("AmazonEKSClusterAutoscalerRole", {
     path: "/system/",
